@@ -28,6 +28,7 @@ class InstallableItem {
     this.downloaded = false;
     this.installed = false;
     this.size = requirement.size;
+    this.installSize = requirement.installSize;
     this.version = requirement.version;
 
     this.detected = false;
@@ -51,6 +52,19 @@ class InstallableItem {
     this.downloadFolder = path.join(this.installerDataSvc.localAppData(), 'cache');
     mkdirp.sync(this.downloadFolder);
     this.downloadedFile = path.join(this.downloadFolder, fileName);
+
+    if(fs.existsSync(this.bundledFile)) {
+      this.downloaded = true;
+    } else {
+      if(fs.existsSync(this.downloadedFile)) {
+        try {
+          let stat = fs.statSync(this.downloadedFile);
+          this.downloaded = stat && (stat.size == requirement.size);
+        } catch (error) {
+          Logger.info(`${this.keyName} - fstat function failure ${error}`);
+        }
+      }
+    }
 
     this.installAfter = undefined;
     this.ipcRenderer = ipcRenderer;

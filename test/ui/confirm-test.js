@@ -120,7 +120,10 @@ describe('Confirm page', function confimPage() {
       let finalSize = 0;
       for (var key in requirements) {
         if(requirements[key].defaultOption === undefined || requirements[key].defaultOption === 'install') {
-          finalSize += parseFloat(requirements[key].size);
+          finalSize += requirements[key].size;
+          if(requirements[key].installSize) {
+            finalSize += requirements[key].installSize;
+          }
         }
       }
       expect(installSizeFooter.element(By.id('install-size-footer')).getText()).toEqual(humanize.filesize(finalSize));
