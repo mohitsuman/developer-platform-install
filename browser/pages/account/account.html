@@ -61,14 +61,14 @@
   </div>
 </main>
 
-<footer class="no-background-color">
-  <div class="footer-border"></div>
-  <button type="button" id="location-cancel-btn" class="cancel-btn footer-btns btn-plain btn-med-size btn btn-lg pull-left" form="accountForm"
-          ng-click="acctCtrl.exit()">Cancel</button>
-  <button type="button" id="location-back-btn" class="back-btn-spacer btn footer-btns btn-plain btn-med-size btn btn-lg" form="accountForm"
-          ng-click="acctCtrl.back()">Back</button>
-  <button id="loginButton" type="submit" class="go-btn footer-btns btn btn-lg btn-primary" form="accountForm"
-          ng-disabled="accountForm.$invalid || acctCtrl.isLoginBtnClicked" ng-class="{'active':acctCtrl.isLoginBtnClicked}">
-    Download & Install
-  </button>
+<footer id="footer" class="fix-footer">
+  <div class="container footer-align">
+    <button type="button" id="confirm-cancel-btn" class="btn btn-lg btn-plain btn-med-size cancel-btn" form="accountForm" ng-click="acctCtrl.exit()">Cancel</button>
+    <div class="pull-right">
+      <button type="button" id="confirm-back-btn" class="btn-plain btn-med-size btn btn-lg back-btn" form="accountForm"
+      ng-click="acctCtrl.back()">Back</button>
+      <button type="submit" id="confirm-install-btn" class="btn-plain btn btn-lg" form="accountForm"
+      ng-disabled="accountForm.$invalid || acctCtrl.isLoginBtnClicked" ng-class="{'active':acctCtrl.isLoginBtnClicked}">Download & Install</button>
+    </div>
+  </div>
 </footer>

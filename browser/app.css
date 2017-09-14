@@ -410,12 +410,14 @@ footer {
   }
 
   .cancel-btn {
-    left: 40px;
+    /* left: 40px; */
+    margin-left: 20px;
   }
 
   .back-btn {
     right: 140px;
-    margin-right: calc(-1 * (100vw - 100%));
+    margin-right: 5px;
+    /* margin-right: calc(-1 * (100vw - 100%)); */
   }
 
   .back-btn-spacer-account {
@@ -424,6 +426,7 @@ footer {
 
   .back-btn-spacer {
     right: 183px;
+    margin-right: 5px;
   }
 
   .go-btn {
@@ -687,11 +690,8 @@ footer {
   }
 
   .size-footer {
-    position: absolute;
-    bottom: 20px;
-    padding-right: 150px;
-    right: 150px;
     color: #9c9c9c;
+    margin: 10px;
   }
 
   .selection-desc {
@@ -708,5 +708,20 @@ footer {
 
   .form-padding {
     padding-top: 49px;
+  }
+
+  .fix-footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    border-color: lightgray;
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 2px 0;
+    margin-left: -20px;
+  }
+
+  .footer-align {
+    margin: 17px 8px;
   }
 }
