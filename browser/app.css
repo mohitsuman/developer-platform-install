@@ -783,7 +783,6 @@ footer {
     padding-top: 30px;
     position: fixed;
     width: 100%;
-    padding-bottom: 16px;
     background: #fff;
   }
 
@@ -792,7 +791,7 @@ footer {
   }
 
   .form-padding {
-    padding-top: 49px;
+    padding-top: 80px;
   }
 
   .summary-info {
@@ -856,5 +855,71 @@ footer {
   .confirm-card-margin {
     margin-left: 50px;
     margin-right: 50px;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 34px;
+    top: -6px;
+    right: 18px;
+  }
+
+  .switch input {display:none;}
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 16px;
+    left: 17px;
+    right: -6px;
+    bottom: 0px;
+    background-color: #ddd;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    right: 9px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #94caea;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 16px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .switch-info {
+    color: black;
+    position: relative;
+    top: -15px;
+    right: 8px;
   }
 }

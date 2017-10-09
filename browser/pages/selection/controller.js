@@ -17,12 +17,14 @@ class SelectionController {
     this.installedSearchNote = '';
     this.isDisabled = false;
     this.numberOfExistingInstallations = 0;
+    this.allSelected = false;
 
     this.installables = {};
     $scope.checkboxModel = {};
     $scope.platform = Platform.OS;
     $scope.detectionStyle = false;
     $scope.virtualization = true;
+    this.switchText = 'Deselect all components';
 
     for (let [key, value] of this.installerDataSvc.allInstallables().entries()) {
       $scope.checkboxModel[key] = value;
@@ -67,13 +69,25 @@ class SelectionController {
   }
 
   selectAll() {
+    this.allSelected = !this.allSelected;
     let checkboxModel = this.sc.checkboxModel;
     for (let key in checkboxModel) {
-      let node = checkboxModel[key];
-      if (node.isInstallable && node.isNotDetected()) {
-        node.selectedOption = 'install';
+      if(this.allSelected) {
+        checkboxModel[key].selectedOption = 'detected';
+        this.switchText = 'Select all components';
+      } else {
+        let node = checkboxModel[key];
+        if (node.isInstallable && node.isNotDetected()) {
+          node.selectedOption = 'install';
+        }
+        this.switchText = 'Deselect all components';
       }
     }
+  }
+
+
+  toggleActivation() {
+    this.allSelected = !this.allSelected;
   }
 
   deselectAll() {
